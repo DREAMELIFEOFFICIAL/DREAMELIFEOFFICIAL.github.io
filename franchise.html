@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DREAME LIFE - 投资加盟</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="asset/common.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'life-green': {
+                            DEFAULT: '#1F2F27', // Deep Green (unchanged)
+                            light: '#3A5A40', // Darker moss green
+                            lighter: '#588157', // Medium moss green
+                        },
+                        'life-cream': '#A3B18A', // Sage green
+                        'life-gold': '#DDA15E', // Warm gold
+                        'life-accent': '#BC6C25', // Terracotta accent
+                        'life-gray': '#DAD7CD', // Soft beige-gray
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica', 'Arial', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        /* 仅保留页面独有的自定义样式 */
+        .franchise-section {
+            padding: 5rem 0;
+        }
+        .form-input {
+            background-color: var(--life-green-light, #3A5A40);
+            border: 1px solid var(--life-gold, #DDA15E);
+            color: white;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            font-weight: 300;
+        }
+        .form-input:focus {
+            outline: none;
+        }
+        .form-label {
+            color: var(--life-cream, #A3B18A);
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .form-checkbox {
+            margin-right: 0.5rem;
+            border-color: var(--life-gold, #DDA15E);
+            background-color: var(--life-green-light, #3A5A40);
+        }
+        @media (max-width: 640px) {
+            .franchise-section { padding: 2rem 0 !important; }
+            .franchise-card { height: 300px; padding: 1rem; }
+            .benefits-grid .card { padding: 1rem; }
+            footer .grid { gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body class="bg-life-green min-h-screen font-sans text-[#333]">
+    <!-- Navigation Bar - Refined -->
+    <div class="sticky-nav shadow-md sticky top-0 z-50" style="background-color: #22302A;">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center py-5">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-light tracking-wider text-white">DREAME LIFE</a>
+                
+                <!-- Navigation - Desktop -->
+                <nav class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">首页</a>
+                    <div class="relative group">
+                        <a href="brand.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">品牌</a>
+                        <div class="absolute left-0 mt-0 w-48 rounded-none shadow-lg hidden group-hover:block z-50 dropdown-menu" style="background-color: #1A2520;">
+                            <a href="brand.html#brand-story" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">品牌故事</a>
+                            <a href="brand.html#brand-dna" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">品牌基因</a>
+                            <a href="brand.html#brand-news" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">新闻与活动</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="products.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">产品</a>
+                        <div class="absolute left-0 mt-0 w-48 rounded-none shadow-lg hidden group-hover:block z-50 dropdown-menu" style="background-color: #1A2520;">
+                            <a href="products.html#fragrance" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">香氛</a>
+                            <a href="products.html#perfume" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">香水</a>
+                            <a href="products.html#plush" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">毛绒</a>
+                            <a href="products.html#cups" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">杯壶</a>
+                            <a href="products.html#bags" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">包袋</a>
+                        </div>
+                    </div>
+                    <a href="#" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">在线商城</a>
+                    <a href="stores.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">门店</a>
+                    <a href="franchise.html" class="text-life-gold hover:text-life-cream transition-colors text-sm uppercase tracking-widest">投资加盟</a>
+                </nav>
+                
+                <!-- Language Switcher -->
+                <div class="flex items-center">
+                    <a href="franchise.html" class="text-life-gold font-light text-sm tracking-wider">中文</a>
+                    <span class="mx-2 text-white">|</span>
+                    <a href="franchise-en.html" class="text-white hover:text-life-gold transition-colors font-light text-sm tracking-wider">EN</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4 pb-4" id="mobile-menu">
+                <a href="index.html" class="block py-2 text-white hover:text-life-cream">首页</a>
+                <div class="mobile-dropdown">
+                    <div class="flex justify-between items-center py-2 text-white hover:text-life-cream">
+                        <span>品牌</span>
+                        <i class="fas fa-chevron-down text-xs mobile-dropdown-toggle"></i>
+                    </div>
+                    <div class="pl-4 hidden mobile-dropdown-menu">
+                        <a href="brand.html#brand-story" class="block py-2 text-white hover:text-life-cream">品牌故事</a>
+                        <a href="brand.html#brand-dna" class="block py-2 text-white hover:text-life-cream">品牌基因</a>
+                        <a href="brand.html#brand-news" class="block py-2 text-white hover:text-life-cream">新闻与活动</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <div class="flex justify-between items-center py-2 text-white hover:text-life-cream">
+                        <a href="products.html"><span>产品</span></a>
+                        <i class="fas fa-chevron-down text-xs mobile-dropdown-toggle"></i>
+                    </div>
+                    <div class="pl-4 hidden mobile-dropdown-menu">
+                        <a href="products.html#fragrance" class="block py-2 text-white hover:text-life-cream">香氛</a>
+                        <a href="products.html#perfume" class="block py-2 text-white hover:text-life-cream">香水</a>
+                        <a href="products.html#plush" class="block py-2 text-white hover:text-life-cream">毛绒</a>
+                        <a href="products.html#cups" class="block py-2 text-white hover:text-life-cream">杯壶</a>
+                        <a href="products.html#bags" class="block py-2 text-white hover:text-life-cream">包袋</a>
+                    </div>
+                </div>
+                <a href="#" class="block py-2 text-white hover:text-life-cream">在线商城</a>
+                <a href="stores.html" class="block py-2 text-white hover:text-life-cream">门店</a>
+                <a href="franchise.html" class="block py-2 text-life-gold hover:text-life-cream">投资加盟</a>
+                <div class="mt-4 flex space-x-4">
+                    <a href="franchise.html" class="text-life-gold">中文</a>
+                    <a href="franchise-en.html" class="text-white hover:text-life-gold">EN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section - Standardized -->
+    <header class="relative h-[500px] flex items-center justify-center bg-cover bg-center" style="background-image: url('asset/banner_investment.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40 h-[500px]"></div>
+        <div class="container mx-auto px-6 z-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-light mb-6 hero-text-title leading-tight tracking-wide">投资加盟</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto font-light leading-relaxed hero-text-desc">与DREAME LIFE共创美好未来，携手开拓全球市场</p>
+            <div class="mt-8">
+                <a href="#franchise-overview" class="inline-block bg-transparent border border-life-gold text-life-gold font-light px-8 py-3 hover:bg-life-gold hover:text-life-green transition-colors duration-300 tracking-widest text-sm uppercase">
+                    了解加盟详情
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Part 1: 加盟情况概述 -->
+    <section id="franchise-overview" class="py-12 bg-life-green">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-life-cream mb-6 font-light leading-relaxed text-center">
+                    DREAME LIFE 以全球化视野打造高品质生活方式品牌，涵盖香水香氛、毛绒玩偶、杯壶、包袋、潮玩等多个核心品类。凭借卓越的产品设计、精细化供应链管理及精准的市场布局，我们持续扩大品牌影响力，并快速拓展全球市场。
+                </p>
+                <p class="text-life-cream mb-6 font-light leading-relaxed text-center">
+                    我们诚邀志同道合的投资者、零售商及合作伙伴加入DREAME LIFE，共享品牌增长红利，让DREAME LIFE 走进更多消费者的生活，携手打造美学消费新标杆。
+                </p>
+                <div class="text-center mt-8">
+                    <a href="#franchise-advantages" class="inline-block bg-transparent border border-life-gold text-life-gold font-light px-8 py-3 hover:bg-life-gold hover:text-life-green transition-colors duration-300 tracking-widest text-sm uppercase">
+                        了解更多
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Part 2: 加盟优势 -->
+    <section id="franchise-advantages" class="py-8 bg-life-green-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-light mb-8 text-center text-[#333] uppercase tracking-widest">加盟优势</h2>        
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <!-- Advantage 1 -->
+                <div class="bg-life-green p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                    <div class="text-life-gold text-4xl mb-4 flex justify-center">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4 class="text-[#333] text-lg font-light mb-4 text-center">灵活合作模式</h4>
+                    <p class="text-life-cream font-light text-sm text-center mt-auto">根据不同市场需求和合作伙伴情况，提供多种灵活的合作方案</p>
+                </div>
+                
+                <!-- Advantage 2 -->
+                <div class="bg-life-green p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                    <div class="text-life-gold text-4xl mb-4 flex justify-center">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h4 class="text-[#333] text-lg font-light mb-4 text-center">强竞争力的品牌力</h4>
+                    <p class="text-life-cream font-light text-sm text-center mt-auto">独特的品牌定位和设计理念，在市场中具有显著辨识度</p>
+                </div>
+                
+                <!-- Advantage 3 -->
+                <div class="bg-life-green p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                    <div class="text-life-gold text-4xl mb-4 flex justify-center">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h4 class="text-[#333] text-lg font-light mb-4 text-center">丰富的多品类产品矩阵</h4>
+                    <p class="text-life-cream font-light text-sm text-center mt-auto">覆盖香氛、家居、潮玩等多个品类，满足不同消费者需求</p>
+                </div>
+                
+                <!-- Advantage 4 -->
+                <div class="bg-life-green p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                    <div class="text-life-gold text-4xl mb-4 flex justify-center">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h4 class="text-[#333] text-lg font-light mb-4 text-center">稳定供应链物流供货体系</h4>
+                    <p class="text-life-cream font-light text-sm text-center mt-auto">高效的供应链管理，确保产品及时配送和稳定库存</p>
+                </div>
+                
+                <!-- Advantage 5 -->
+                <div class="bg-life-green p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+                    <div class="text-life-gold text-4xl mb-4 flex justify-center">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h4 class="text-[#333] text-lg font-light mb-4 text-center">全渠道营销推广方案</h4>
+                    <p class="text-life-cream font-light text-sm text-center mt-auto">线上线下整合营销策略，提升品牌曝光和销售转化</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Part 4: 留资表单 -->
+    <section id="franchise-form" class="py-4 bg-life-green-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-light mb-8 text-center text-[#333] uppercase tracking-widest">立即咨询</h2>
+            <div class="max-w-2xl mx-auto">
+                <p class="text-life-cream mb-6 font-light leading-relaxed text-center">
+                    请在下方留下您的联系信息，我们期待与您合作
+                </p>
+                
+                <a href="https://dreametech.feishu.cn/share/base/form/shrcnvvld4xo04HFhiCOxkkY9yh" target="_blank" class="block">
+                    <div class="bg-life-green p-8 md:p-10 rounded-lg shadow-xl cursor-pointer hover:opacity-95 transition-all duration-300 border border-life-gold/20 hover:border-life-gold/50">
+                        <h3 class="text-xl text-center text-life-gold mb-4 font-light tracking-wider">加盟申请表</h3>
+                        
+                        <div class="mb-4">
+                            <label class="text-life-cream font-light mb-2 block tracking-wide flex items-center">
+                                <i class="fas fa-user text-life-gold mr-2"></i>
+                                联系姓名：
+                            </label>
+                            <div class="bg-life-green-light border border-life-gold/60 text-[#333] px-4 py-6 w-full focus:outline-none font-light rounded-sm"></div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="text-life-cream font-light mb-2 block tracking-wide flex items-center">
+                                <i class="fas fa-building text-life-gold mr-2"></i>
+                                公司名称（选填）：
+                            </label>
+                            <div class="bg-life-green-light border border-life-gold/60 text-[#333] px-4 py-6 w-full focus:outline-none font-light rounded-sm"></div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="text-life-cream font-light mb-2 block tracking-wide flex items-center">
+                                <i class="fas fa-phone text-life-gold mr-2"></i>
+                                联系电话：
+                            </label>
+                            <div class="bg-life-green-light border border-life-gold/60 text-[#333] px-4 py-6 w-full focus:outline-none font-light rounded-sm"></div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="text-life-cream font-light mb-2 block tracking-wide flex items-center">
+                                <i class="fas fa-envelope text-life-gold mr-2"></i>
+                                联系邮箱（选填）：
+                            </label>
+                            <div class="bg-life-green-light border border-life-gold/60 text-[#333] px-4 py-6 w-full focus:outline-none font-light rounded-sm"></div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <p class="text-life-cream font-light mb-4 tracking-wide flex items-center">
+                                <i class="fas fa-globe text-life-gold mr-2"></i>
+                                合作地域意向：
+                            </p>
+                            <div class="flex flex-wrap gap-8 pl-2">
+                                <label class="flex items-center cursor-pointer group">
+                                    <div class="w-5 h-5 mr-3 border border-life-gold/60 bg-life-green-light flex items-center justify-center rounded-sm group-hover:border-life-gold transition-colors">
+                                        <div class="w-3 h-3 bg-life-gold/30 rounded-sm"></div>
+                                    </div>
+                                    <span class="text-[#333] font-light">国内市场</span>
+                                </label>
+                                <label class="flex items-center cursor-pointer group">
+                                    <div class="w-5 h-5 mr-3 border border-life-gold/60 bg-life-green-light flex items-center justify-center rounded-sm group-hover:border-life-gold transition-colors">
+                                        <div class="w-3 h-3 bg-life-gold/30 rounded-sm"></div>
+                                    </div>
+                                    <span class="text-[#333] font-light">海外市场</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="inline-block bg-life-gold text-life-green font-light px-12 py-3 hover:bg-white transition-colors duration-300 tracking-widest text-sm uppercase rounded-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all">
+                                提交申请
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12" style="background-color: #3A5A40;">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">品牌</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">品牌故事</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">品牌基因</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">新闻与活动</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">产品</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">香氛</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">香水</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">毛绒</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">杯壶</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">包袋</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">在线商城</h3>
+                </div>
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">门店</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">店铺形象</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">门店查找</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col justify-start">
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-black"></i>
+                            <span class="text-black font-light">dreamelife@dreame.tech</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-life-gold/30 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-black text-sm mb-4 md:mb-0 font-light">&copy; 2025 DREAME LIFE. 保留所有权利。</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="Instagram.jpg" title="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="TIKTOK.jpg" title="TikTok"><i class="fab fa-tiktok text-xl"></i></a>
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="FACEBOOK.jpg" title="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="小红书.jpg" title="小红书"><i class="fas fa-book-open text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div id="qrcode-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-6 max-w-sm mx-auto rounded-lg shadow-xl relative">
+            <button id="close-modal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-center">
+                <h4 id="qrcode-title" class="text-xl font-light mb-4 text-life-green"></h4>
+                <div class="mb-4">
+                    <img id="qrcode-image" src="" alt="QR Code" class="mx-auto max-h-64">
+                </div>
+                <p class="text-sm text-gray-600">扫描二维码关注我们</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification for Coming Soon -->
+    <div id="toast-notification" class="fixed bottom-4 right-4 bg-life-green-light text-[#333] px-6 py-3 rounded shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <div class="flex items-center">
+            <i class="fas fa-info-circle mr-3 text-life-gold"></i>
+            <span>尽请期待</span>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Mobile Dropdown Toggles
+        document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                this.closest('.mobile-dropdown').querySelector('.mobile-dropdown-menu').classList.toggle('hidden');
+                this.classList.toggle('rotate-180');
+            });
+        });
+
+        // Coming Soon Toast for Online Store links
+        document.querySelectorAll('a[href="#"][class*="text-"]').forEach(function(link) {
+            if (link.textContent.trim() === '在线商城') {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const toast = document.getElementById('toast-notification');
+                    toast.classList.remove('translate-y-20', 'opacity-0');
+                    toast.classList.add('translate-y-0', 'opacity-100');
+                    
+                    setTimeout(function() {
+                        toast.classList.remove('translate-y-0', 'opacity-100');
+                        toast.classList.add('translate-y-20', 'opacity-0');
+                    }, 3000);
+                });
+            }
+        });
+        
+        // Form submission handler
+        const franchiseForm = document.querySelector('#franchise-form form');
+        if (franchiseForm) {
+            franchiseForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically send the form data to a server
+                alert('感谢您的咨询！我们将尽快与您联系。');
+                this.reset();
+            });
+        }
+        
+        // 添加导航菜单延迟消失功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownGroups = document.querySelectorAll('.group');
+            
+            dropdownGroups.forEach(group => {
+                let timeout;
+                const dropdown = group.querySelector('.dropdown-menu');
+                
+                group.addEventListener('mouseenter', () => {
+                    clearTimeout(timeout);
+                    dropdown.style.opacity = '1';
+                    dropdown.style.visibility = 'visible';
+                });
+                
+                group.addEventListener('mouseleave', () => {
+                    timeout = setTimeout(() => {
+                        dropdown.style.opacity = '0';
+                        dropdown.style.visibility = 'hidden';
+                    }, 500); // 500毫秒延迟
+                });
+                
+                if (dropdown) {
+                    dropdown.addEventListener('mouseenter', () => {
+                        clearTimeout(timeout);
+                    });
+                    
+                    dropdown.addEventListener('mouseleave', () => {
+                        timeout = setTimeout(() => {
+                            dropdown.style.opacity = '0';
+                            dropdown.style.visibility = 'hidden';
+                        }, 500); // 500毫秒延迟
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

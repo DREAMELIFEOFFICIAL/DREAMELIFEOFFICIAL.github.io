@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DREAME LIFE - Stores</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="asset/common.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'life-green': {
+                            DEFAULT: '#1F2F27', // Deep Green (unchanged)
+                            light: '#3A5A40', // Darker moss green
+                            lighter: '#588157', // Medium moss green
+                        },
+                        'life-cream': '#A3B18A', // Sage green
+                        'life-gold': '#DDA15E', // Warm gold
+                        'life-accent': '#BC6C25', // Terracotta accent
+                        'life-gray': '#DAD7CD', // Soft beige-gray
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica', 'Arial', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        /* 仅保留页面独有的自定义样式 */
+        .store-section {
+            padding: 5rem 0;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #DDA15E;
+        }
+        .store-image {
+            /* 门店图片专属高度等可在此保留 */
+        }
+        .store-card {
+            /* 门店卡片专属样式可在此保留 */
+        }
+        @media (max-width: 640px) {
+            .store-section { padding: 2rem 0 !important; }
+            .store-image { height: 200px !important; }
+            .store-card { margin-bottom: 1.5rem; }
+        }
+    </style>
+</head>
+<body class="bg-life-green min-h-screen font-sans text-dark">
+    <!-- Navigation Bar - Refined -->
+    <div class="sticky-nav shadow-md sticky top-0 z-50" style="background-color: #22302A;">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center py-5">
+                <!-- Logo -->
+                <a href="index-en.html" class="text-2xl font-light tracking-wider text-white">DREAME LIFE</a>
+                
+                <!-- Navigation - Desktop -->
+                <nav class="hidden md:flex items-center space-x-10">
+                    <a href="index-en.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">Home</a>
+                    <div class="relative group">
+                        <a href="brand-en.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">Brand</a>
+                        <div class="absolute left-0 mt-0 w-48 rounded-none shadow-lg hidden group-hover:block z-50 dropdown-menu" style="background-color: #1A2520;">
+                            <a href="brand-en.html#brand-story" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">Brand Story</a>
+                            <a href="brand-en.html#brand-dna" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">Brand DNA</a>
+                            <a href="brand-en.html#brand-news" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">News & Events</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="products-en.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">Products</a>
+                        <div class="absolute left-0 mt-0 w-48 rounded-none shadow-lg hidden group-hover:block z-50 dropdown-menu" style="background-color: #1A2520;">
+                            <a href="products-en.html#fragrance" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">Fragrance</a>
+                            <a href="products-en.html#perfume" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">Perfume</a>
+                            <a href="products-en.html#plush" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">Plush</a>
+                            <a href="products-en.html#cups" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">DRINKWAR</a>
+                            <a href="products-en.html#bags" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">Bag</a>
+                        </div>
+                    </div>
+                    <a href="#" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">Online Store</a>
+                    <div class="relative group">
+                        <a href="stores-en.html" class="text-life-gold hover:text-life-cream transition-colors text-sm uppercase tracking-widest">OUR STORES</a>
+                        <div class="absolute left-0 mt-0 w-48 rounded-none shadow-lg hidden group-hover:block z-50 dropdown-menu" style="background-color: #1A2520;">
+                            <a href="#store-overview" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">Store Image</a>
+                            <a href="#store-showcase" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">Store Showcase</a>
+                            <a href="#store-locations" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">Store Locator</a>
+                        </div>
+                    </div>
+                    <a href="franchise-en.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">FRANCHISE & INVESTMENT</a>
+                </nav>
+                
+                <!-- Language Switcher -->
+                <div class="flex items-center">
+                    <a href="stores.html" class="text-white hover:text-life-gold transition-colors font-light text-sm tracking-wider">中文</a>
+                    <span class="mx-2 text-white">|</span>
+                    <a href="stores-en.html" class="text-life-gold font-light text-sm tracking-wider">EN</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden mt-4 pb-4" id="mobile-menu">
+                <a href="index-en.html" class="block py-2 text-white hover:text-life-cream">Home</a>
+                <div class="mobile-dropdown">
+                    <div class="flex justify-between items-center py-2 text-white hover:text-life-cream">
+                        <span>Brand</span>
+                        <i class="fas fa-chevron-down text-xs mobile-dropdown-toggle"></i>
+                    </div>
+                    <div class="pl-4 hidden mobile-dropdown-menu">
+                        <a href="brand-en.html#brand-story" class="block py-2 text-white hover:text-life-cream">Brand Story</a>
+                        <a href="brand-en.html#brand-dna" class="block py-2 text-white hover:text-life-cream">Brand DNA</a>
+                        <a href="brand-en.html#brand-news" class="block py-2 text-white hover:text-life-cream">News & Events</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <div class="flex justify-between items-center py-2 text-white hover:text-life-cream">
+                        <a href="products-en.html"><span>Products</span></a>
+                        <i class="fas fa-chevron-down text-xs mobile-dropdown-toggle"></i>
+                    </div>
+                    <div class="pl-4 hidden mobile-dropdown-menu">
+                        <a href="products-en.html#fragrance" class="block py-2 text-white hover:text-life-cream">Fragrance</a>
+                        <a href="products-en.html#perfume" class="block py-2 text-white hover:text-life-cream">Perfume</a>
+                        <a href="products-en.html#plush" class="block py-2 text-white hover:text-life-cream">Plush</a>
+                        <a href="products-en.html#cups" class="block py-2 text-white hover:text-life-cream">Cups</a>
+                        <a href="products-en.html#bags" class="block py-2 text-white hover:text-life-cream">Bags</a>
+                    </div>
+                </div>
+                <a href="#" class="block py-2 text-white hover:text-life-cream">Online Store</a>
+                <div class="mobile-dropdown">
+                    <div class="flex justify-between items-center py-2 text-life-gold hover:text-life-cream">
+                        <span>Stores</span>
+                        <i class="fas fa-chevron-down text-xs mobile-dropdown-toggle"></i>
+                    </div>
+                    <div class="pl-4 hidden mobile-dropdown-menu">
+                        <a href="#store-overview" class="block py-2 text-white hover:text-life-cream">Store Image</a>
+                        <a href="#store-showcase" class="block py-2 text-white hover:text-life-cream">Store Showcase</a>
+                        <a href="#store-locations" class="block py-2 text-white hover:text-life-cream">Store Locator</a>
+                    </div>
+                </div>
+                <a href="franchise-en.html" class="block py-2 text-white hover:text-life-cream">Franchise</a>
+                <div class="mt-4 flex space-x-4">
+                    <a href="stores.html" class="text-life-gold">中文</a>
+                    <a href="stores-en.html" class="text-white hover:text-life-gold">EN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section - Standardized -->
+    <header class="relative flex items-center justify-center bg-cover bg-center" style="background-image: url('asset/banner_store.jpg'); height: 500px;">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40" style="height: 500px;"></div>
+        <div class="container mx-auto px-6 z-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-light mb-6 hero-text-title leading-tight tracking-wide">Stores</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto font-light leading-relaxed hero-text-desc">Explore DREAME LIFE's physical stores and experience immersive lifestyle aesthetics</p>
+            <div class="mt-8">
+                <a href="#store-overview" class="inline-block bg-transparent border border-life-gold text-life-gold font-light px-8 py-3 hover:bg-life-gold hover:text-life-green transition-colors duration-300 tracking-widest text-sm uppercase">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Part 1: Store Overview -->
+    <section id="store-overview" class="py-12 bg-life-green">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-xl font-light mb-4 text-center text-life-gold tracking-wide">Explore DREAME LIFE Offline Stores</h3>
+                <p class="text-life-cream mb-4 font-light leading-relaxed text-center">
+                    Inspiration at your fingertips, immersive aesthetic living experience. DREAME LIFE offline stores are not just product display spaces, but also venues where inspiration and aesthetics meet. Here, you can experience the layers of fragrance, embrace soft and healing plush toys, try out carefully designed home goods, or discover the endless creativity of trendy art.
+                </p>
+                <p class="text-life-cream mb-4 font-light leading-relaxed text-center">
+                    Whether you are choosing the ideal item for yourself or looking for a special gift for someone important, DREAME LIFE offline stores look forward to your visit. Step into our space and start a journey to explore a better life.
+                </p>
+                <div class="text-center mt-12">
+                    <a href="#store-locations" class="inline-block bg-transparent border border-life-gold text-life-gold font-light px-8 py-3 hover:bg-life-gold hover:text-life-green transition-colors duration-300 tracking-widest text-sm uppercase">
+                        Find Store
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Part 2: 各类型门店图片展示 -->
+    <section id="store-showcase" class="py-12 bg-life-green-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-light mb-8 text-center text-dark uppercase tracking-widest">Store Image</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Store Image 1 -->
+                <div class="overflow-hidden rounded-lg shadow-lg group">
+                    <div class="relative">
+                        <img src="asset/店铺形象/门店图1.jpg" alt="DREAME LIFE 旗舰店" class="w-full object-cover transition-transform duration-500 group-hover:scale-110" style="height: 400px;">
+                    </div>
+                </div>
+                
+                <!-- Store Image 2 -->
+                <div class="overflow-hidden rounded-lg shadow-lg group">
+                    <div class="relative">
+                        <img src="asset/店铺形象/门店图2.jpg" alt="DREAME LIFE 标准门店" class="w-full object-cover transition-transform duration-500 group-hover:scale-110" style="height: 400px;">
+                    </div>
+                </div>
+                
+                <!-- Store Image 3 -->
+                <div class="overflow-hidden rounded-lg shadow-lg group">
+                    <div class="relative">
+                        <img src="asset/店铺形象/门店图3.jpg" alt="DREAME LIFE 超级体验店" class="w-full object-cover transition-transform duration-500 group-hover:scale-110" style="height: 400px;">
+                    </div>
+                </div>
+                
+                <!-- Store Image 4 -->
+                <div class="overflow-hidden rounded-lg shadow-lg group">
+                    <div class="relative">
+                        <img src="asset/店铺形象/门店图4.jpg" alt="DREAME LIFE 机场店" class="w-full object-cover transition-transform duration-500 group-hover:scale-110" style="height: 400px;">
+                    </div>
+                </div>
+                
+                <!-- Store Image 5 -->
+                <div class="overflow-hidden rounded-lg shadow-lg group">
+                    <div class="relative">
+                        <img src="asset/店铺形象/门店图5.jpg" alt="DREAME LIFE 沿街门店" class="w-full object-cover transition-transform duration-500 group-hover:scale-110" style="height: 400px;">
+                    </div>
+                </div>
+                
+                <!-- Store Image 6 -->
+                <div class="overflow-hidden rounded-lg shadow-lg group">
+                    <div class="relative">
+                        <img src="asset/店铺形象/门店图6.jpg" alt="DREAME LIFE 室内香薰专区" class="w-full object-cover transition-transform duration-500 group-hover:scale-110" style="height: 400px;">
+                    </div>
+                </div>
+                
+                <!-- Store Image 7 -->
+                <div class="overflow-hidden rounded-lg shadow-lg group">
+                    <div class="relative">
+                        <img src="asset/店铺形象/门店图7.jpg" alt="DREAME LIFE 玩偶室内专区" class="w-full object-cover transition-transform duration-500 group-hover:scale-110" style="height: 400px;">
+                    </div>
+                </div>
+                
+                <!-- Store Image 8 -->
+                <div class="overflow-hidden rounded-lg shadow-lg group">
+                    <div class="relative">
+                        <img src="asset/店铺形象/门店图8.jpg" alt="DREAME LIFE 玩偶互动区" class="w-full object-cover transition-transform duration-500 group-hover:scale-110" style="height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </section>
+    
+    <!-- Store Locations -->
+    <section id="store-locations" class="py-12 bg-life-green">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-light mb-8 text-center text-dark uppercase tracking-widest">Store Locator</h2>
+            
+            <div class="max-w-4xl mx-auto mb-16">
+                <p class="text-life-cream mb-8 font-light leading-relaxed text-center">
+                    DREAME LIFE will open stores in many cities at home and abroad, providing you with convenient offline experiences. You can find the nearest store in the following ways.
+                </p>
+                
+                <!-- <form class="flex flex-col md:flex-row mb-16">
+                    <input type="text" placeholder="输入城市或地区" class="flex-1 px-6 py-4 bg-life-green-light text-[#333] focus:outline-none border border-life-gold">
+                    <button type="submit" class="bg-life-gold text-life-green font-light px-8 py-3 hover:bg-white transition-colors duration-300 uppercase text-sm tracking-widest">
+                        查找
+                    </button>
+                </form>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-life-green-light p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-light mb-3 text-[#333] tracking-wide">北京三里屯旗舰店</h3>
+                        <p class="text-life-cream text-sm mb-4 font-light leading-relaxed">北京市朝阳区三里屯太古里北区N8-30</p>
+                        <p class="text-life-cream text-sm mb-6 font-light leading-relaxed">营业时间: 10:00 - 22:00</p>
+                        <a href="#" class="text-life-gold text-sm uppercase tracking-widest hover:text-[#333] transition-colors inline-flex items-center group">
+                            <span>查看详情</span> <i class="fas fa-arrow-right ml-2 text-xs transform transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-life-green-light p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-light mb-3 text-[#333] tracking-wide">上海静安寺店</h3>
+                        <p class="text-life-cream text-sm mb-4 font-light leading-relaxed">上海市静安区南京西路1266号恒隆广场4楼</p>
+                        <p class="text-life-cream text-sm mb-6 font-light leading-relaxed">营业时间: 10:00 - 22:00</p>
+                        <a href="#" class="text-life-gold text-sm uppercase tracking-widest hover:text-[#333] transition-colors inline-flex items-center group">
+                            <span>查看详情</span> <i class="fas fa-arrow-right ml-2 text-xs transform transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-life-green-light p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-light mb-3 text-[#333] tracking-wide">广州天河城店</h3>
+                        <p class="text-life-cream text-sm mb-4 font-light leading-relaxed">广州市天河区天河路208号天河城购物中心5楼</p>
+                        <p class="text-life-cream text-sm mb-6 font-light leading-relaxed">营业时间: 10:00 - 22:00</p>
+                        <a href="#" class="text-life-gold text-sm uppercase tracking-widest hover:text-[#333] transition-colors inline-flex items-center group">
+                            <span>查看详情</span> <i class="fas fa-arrow-right ml-2 text-xs transform transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#store-locations" class="inline-block bg-transparent border border-life-gold text-life-gold font-light px-8 py-3 hover:bg-life-gold hover:text-life-green transition-colors duration-300 tracking-widest text-sm uppercase">
+                    浏览全部门店
+                </a>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12" style="background-color: #3A5A40;">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">Brand</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">Brand Story</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">Brand DNA</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">News & Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">Fragrance</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">Perfume</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">Plush</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">Cups</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">Bags</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">Online Store</h3>
+                </div>
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">Stores</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">Store Image</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">Store Locator</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col justify-start">
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-black"></i>
+                            <span class="text-black font-light">dreamelife@dreame.tech</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-life-gold/30 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-black text-sm mb-4 md:mb-0 font-light">&copy; 2025 DREAME LIFE. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="Instagram.jpg" title="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="TIKTOK.jpg" title="TikTok"><i class="fab fa-tiktok text-xl"></i></a>
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="FACEBOOK.jpg" title="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="小红书.jpg" title="Xiaohongshu"><i class="fas fa-book-open text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div id="qrcode-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-6 max-w-sm mx-auto rounded-lg shadow-xl relative">
+            <button id="close-modal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-center">
+                <h4 id="qrcode-title" class="text-xl font-light mb-4 text-life-green"></h4>
+                <div class="mb-4">
+                    <img id="qrcode-image" src="" alt="QR Code" class="mx-auto max-h-64">
+                </div>
+                <p class="text-sm text-gray-600">Scan the QR code to follow us</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification for Coming Soon -->
+    <div id="toast-notification" class="fixed bottom-4 right-4 bg-life-green-light text-[#333] px-6 py-3 rounded shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <div class="flex items-center">
+            <i class="fas fa-info-circle mr-3 text-life-gold"></i>
+            <span>Coming Soon</span>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Mobile Dropdown Toggles
+        document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                this.closest('.mobile-dropdown').querySelector('.mobile-dropdown-menu').classList.toggle('hidden');
+                this.classList.toggle('rotate-180');
+            });
+        });
+
+        // Coming Soon Toast for Online Store links
+        document.querySelectorAll('a[href="#"][class*="text-"]').forEach(function(link) {
+            if (link.textContent.trim() === '在线商城') {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const toast = document.getElementById('toast-notification');
+                    toast.classList.remove('translate-y-20', 'opacity-0');
+                    toast.classList.add('translate-y-0', 'opacity-100');
+                    
+                    setTimeout(function() {
+                        toast.classList.remove('translate-y-0', 'opacity-100');
+                        toast.classList.add('translate-y-20', 'opacity-0');
+                    }, 3000);
+                });
+            }
+        });
+        
+        // Add delay feature for navigation menu disappearance
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownGroups = document.querySelectorAll('.group');
+            
+            dropdownGroups.forEach(group => {
+                let timeout;
+                const dropdown = group.querySelector('.dropdown-menu');
+                
+                group.addEventListener('mouseenter', () => {
+                    clearTimeout(timeout);
+                    dropdown.style.opacity = '1';
+                    dropdown.style.visibility = 'visible';
+                });
+                
+                group.addEventListener('mouseleave', () => {
+                    timeout = setTimeout(() => {
+                        dropdown.style.opacity = '0';
+                        dropdown.style.visibility = 'hidden';
+                    }, 500); // 500ms delay
+                });
+                
+                if (dropdown) {
+                    dropdown.addEventListener('mouseenter', () => {
+                        clearTimeout(timeout);
+                    });
+                    
+                    dropdown.addEventListener('mouseleave', () => {
+                        timeout = setTimeout(() => {
+                            dropdown.style.opacity = '0';
+                            dropdown.style.visibility = 'hidden';
+                        }, 500); // 500ms delay
+                    });
+                }
+            });
+
+            // QR Code Modal Functionality
+            const qrcodeModal = document.getElementById('qrcode-modal');
+            const qrcodeImage = document.getElementById('qrcode-image');
+            const qrcodeTitle = document.getElementById('qrcode-title');
+            const closeModal = document.getElementById('close-modal');
+            
+            // Open Modal when clicking on social media icons
+            document.querySelectorAll('.qrcode-trigger').forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const qrcodeSrc = this.getAttribute('data-qrcode');
+                    const title = this.getAttribute('title');
+                    
+                    qrcodeImage.src = `asset/link/${qrcodeSrc}`;
+                    qrcodeTitle.textContent = `${title} Official Account`;
+                    qrcodeModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+            
+            // Close Modal
+            closeModal.addEventListener('click', () => {
+                qrcodeModal.classList.add('hidden');
+                document.body.style.overflow = ''; // Allow scrolling again
+            });
+            
+            // Close Modal when clicking outside
+            qrcodeModal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    qrcodeModal.classList.add('hidden');
+                    document.body.style.overflow = ''; // Allow scrolling again
+                }
+            });
+            
+            // Close Modal on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !qrcodeModal.classList.contains('hidden')) {
+                    qrcodeModal.classList.add('hidden');
+                    document.body.style.overflow = ''; // Allow scrolling again
+                }
+            });
+        });
+    </script>
+</body>
+</html>

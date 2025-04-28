@@ -1,0 +1,69 @@
+<!-- HTML部分 - 添加在footer后，toast notification前 -->
+
+<!-- QR Code Modal -->
+<div id="qrcode-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 max-w-sm mx-auto rounded-lg shadow-xl relative">
+        <button id="close-modal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="text-center">
+            <h4 id="qrcode-title" class="text-xl font-light mb-4 text-life-green"></h4>
+            <div class="mb-4">
+                <img id="qrcode-image" src="" alt="QR Code" class="mx-auto max-h-64">
+            </div>
+            <p class="text-sm text-gray-600">Scan the QR code to follow us</p>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript部分 - 添加在现有DOMContentLoaded事件处理函数内的末尾 -->
+
+// QR Code Modal Functionality
+const qrcodeModal = document.getElementById('qrcode-modal');
+const qrcodeImage = document.getElementById('qrcode-image');
+const qrcodeTitle = document.getElementById('qrcode-title');
+const closeModal = document.getElementById('close-modal');
+
+// Open Modal when clicking on social media icons
+document.querySelectorAll('.qrcode-trigger').forEach(trigger => {
+    trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        const qrcodeSrc = this.getAttribute('data-qrcode');
+        const title = this.getAttribute('title');
+        
+        qrcodeImage.src = `asset/link/${qrcodeSrc}`;
+        qrcodeTitle.textContent = `${title} Official Account`;
+        qrcodeModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+});
+
+// Close Modal
+closeModal.addEventListener('click', () => {
+    qrcodeModal.classList.add('hidden');
+    document.body.style.overflow = ''; // Allow scrolling again
+});
+
+// Close Modal when clicking outside
+qrcodeModal.addEventListener('click', function(e) {
+    if (e.target === this) {
+        qrcodeModal.classList.add('hidden');
+        document.body.style.overflow = ''; // Allow scrolling again
+    }
+});
+
+// Close Modal on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !qrcodeModal.classList.contains('hidden')) {
+        qrcodeModal.classList.add('hidden');
+        document.body.style.overflow = ''; // Allow scrolling again
+    }
+});
+
+<!-- 社交媒体图标部分 - 替换footer中的图标部分 -->
+<div class="flex space-x-4">
+    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="Instagram.jpg" title="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="TIKTOK.jpg" title="TikTok"><i class="fab fa-tiktok text-xl"></i></a>
+    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="FACEBOOK.jpg" title="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="小红书.jpg" title="Xiaohongshu"><i class="fas fa-book-open text-xl"></i></a>
+</div> 

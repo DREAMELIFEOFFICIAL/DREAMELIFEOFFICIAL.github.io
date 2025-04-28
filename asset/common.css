@@ -1,0 +1,166 @@
+/* 公共样式文件 common.css */
+body {
+    background-color: #fff;
+    color: #222;
+}
+.bg-life-green, .bg-life-green-light, .bg-life-green-lighter {
+    background-color: #fff !important;
+}
+.sticky-nav {
+    background-color: #22302A !important;
+}
+.dropdown-menu {
+    background-color: #1A2520 !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+.dropdown-menu a {
+    padding: 12px 16px;
+    display: block;
+}
+.group:hover .dropdown-menu,
+.dropdown-menu:hover {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+.group {
+    transition: opacity 0.5s;
+}
+.group:hover {
+    transition-delay: 0.5s;
+}
+nav a, .group > a {
+    color: #fff;
+    padding: 8px 12px;
+    display: inline-block;
+}
+.footer, footer {
+    background: #3A5A40 !important;
+    color: #000 !important;
+}
+.text-life-cream, .text-life-gray {
+    color: #666 !important;
+}
+.text-life-gold {
+    color: #DDA15E !important;
+}
+.border-life-gold, .border-life-gold\/30 {
+    border-color: #DDA15E !important;
+}
+.shadow-lg, .shadow-md, .shadow-xl {
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.rounded-lg, .rounded-none, .rounded-sm {
+    border-radius: 8px;
+}
+.hover\:bg-life-gold:hover {
+    background-color: #DDA15E !important;
+    color: #fff !important;
+}
+.hover\:text-life-green:hover {
+    color: #1F2F27 !important;
+}
+.section-title::after {
+    background-color: #DDA15E;
+}
+.card-hover {
+    background: #fafafa;
+    border: 1px solid #eee;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.card-hover:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+.hero-text-title { color: #fff !important; }
+.hero-text-desc { color: #DCD7C9 !important; }
+/* 导航栏和悬浮菜单的文字始终为白色 */
+.sticky-nav a,
+.sticky-nav .group > a,
+.sticky-nav .dropdown-menu a,
+#mobile-menu > a,
+#mobile-menu .mobile-dropdown > div,
+#mobile-menu .mobile-dropdown-menu a {
+    color: #fff !important;
+}
+.sticky-nav .dropdown-menu a:hover,
+#mobile-menu .mobile-dropdown-menu a:hover {
+    color: #1F2F27 !important;
+}
+.bg-white {
+    background: #fff !important;
+}
+.border {
+    border-color: #eee !important;
+}
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+.gradient-border:focus {
+    border-image: linear-gradient(to right, #1F2F27, #DDA15E) 1;
+}
+.lang-switch {
+    position: relative;
+    cursor: pointer;
+}
+.lang-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #1F2F27;
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 50;
+}
+.lang-switch:hover .lang-options {
+    display: block;
+}
+/* 移动端适配规则 */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .hero-text-title {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    .hero-text-desc {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    h2, h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    p {
+        font-size: 0.875rem;
+    }
+    section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .py-12 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .mb-8 {
+        margin-bottom: 1rem;
+    }
+    .gap-6 {
+        gap: 0.75rem;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+    }
+} 

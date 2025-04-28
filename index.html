@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIFE - 精品家居品牌</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="asset/common.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'life-green': {
+                            DEFAULT: '#1F2F27', // Deep Green
+                            light: '#3A5A40', // Darker moss green
+                            lighter: '#588157', // Medium moss green
+                        },
+                        'life-cream': '#A3B18A', // Sage green
+                        'life-gold': '#DDA15E', // Warm gold
+                        'life-accent': '#BC6C25', // Terracotta accent
+                        'life-gray': '#DAD7CD', // Soft beige-gray
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica', 'Arial', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        /* 仅保留页面独有的自定义样式 */
+        /* 首页如有特殊样式可保留，否则可删除全部 */
+    </style>
+</head>
+<body class="bg-life-green min-h-screen font-sans text-[#333]">
+    <!-- Navigation Bar - Refined -->
+    <div class="sticky-nav shadow-md sticky top-0 z-50" style="background-color: #22302A;">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center py-5">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-light tracking-wider text-white">DREAME LIFE</a>
+                
+                <!-- Navigation - Desktop -->
+                <nav class="hidden md:flex items-center space-x-10">
+                    <a href="index.html" class="text-life-gold hover:text-life-cream transition-colors text-sm uppercase tracking-widest">首页</a>
+                    <div class="relative group">
+                        <a href="brand.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">品牌</a>
+                        <div class="absolute left-0 mt-0 w-48 rounded-none shadow-lg hidden group-hover:block z-50 dropdown-menu" style="background-color: #1A2520;">
+                            <a href="brand.html#brand-story" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">品牌故事</a>
+                            <a href="brand.html#brand-dna" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">品牌基因</a>
+                            <a href="brand.html#brand-news" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">新闻与活动</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <a href="products.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">产品</a>
+                        <div class="absolute left-0 mt-0 w-48 rounded-none shadow-lg hidden group-hover:block z-50 dropdown-menu" style="background-color: #1A2520;">
+                            <a href="products.html#fragrance" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">香氛</a>
+                            <a href="products.html#perfume" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">香水</a>
+                            <a href="products.html#plush" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">毛绒</a>
+                            <a href="products.html#cups" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">杯壶</a>
+                            <a href="products.html#bags" class="block px-4 py-3 text-xs text-white hover:bg-life-gold hover:text-black uppercase tracking-widest">包袋</a>
+                        </div>
+                    </div>
+                    <a href="#" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">在线商城</a>
+                    <a href="stores.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">门店</a>
+                    <a href="franchise.html" class="text-white hover:text-life-gold transition-colors text-sm uppercase tracking-widest">投资加盟</a>
+                </nav>
+                
+                <!-- Right Menu Items -->
+                <div class="flex items-center space-x-6">
+                    <!-- Search Icon -->
+                    <a href="#" class="text-[#333] hover:text-life-gold transition-colors">
+                        <i class="fas fa-search text-sm"></i>
+                    </a>
+                    <!-- Language Switcher -->
+                    <div class="flex items-center">
+                        <a href="index.html" class="text-life-gold font-light text-sm tracking-wider">中文</a>
+                        <span class="mx-2 text-white">|</span>
+                        <a href="index-en.html" class="text-white hover:text-life-gold transition-colors font-light text-sm tracking-wider">EN</a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu (hidden by default) -->
+            <div class="md:hidden hidden mt-4 pb-4" id="mobile-menu">
+                <a href="index.html" class="block py-2 text-life-gold hover:text-life-cream">首页</a>
+                <div class="mobile-dropdown">
+                    <div class="flex justify-between items-center py-2 text-white hover:text-life-cream">
+                        <span>品牌</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </div>
+                    <div class="hidden pl-4 space-y-2">
+                        <a href="brand.html#brand-story" class="block py-1 text-sm text-white hover:text-life-cream">品牌故事</a>
+                        <a href="brand.html#brand-dna" class="block py-1 text-sm text-white hover:text-life-cream">品牌基因</a>
+                        <a href="brand.html#brand-news" class="block py-1 text-sm text-white hover:text-life-cream">新闻与活动</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <div class="flex justify-between items-center py-2 text-white hover:text-life-cream">
+                        <a href="products.html"><span>产品</span></a>
+                        <i class="fas fa-chevron-down text-xs mobile-dropdown-toggle"></i>
+                    </div>
+                    <div class="hidden pl-4 space-y-2">
+                        <a href="products.html#fragrance" class="block py-1 text-sm text-white hover:text-life-cream">香氛</a>
+                        <a href="products.html#perfume" class="block py-1 text-sm text-white hover:text-life-cream">香水</a>
+                        <a href="products.html#plush" class="block py-1 text-sm text-white hover:text-life-cream">毛绒</a>
+                        <a href="products.html#cups" class="block py-1 text-sm text-white hover:text-life-cream">杯壶</a>
+                        <a href="products.html#bags" class="block py-1 text-sm text-white hover:text-life-cream">包袋</a>
+                    </div>
+                </div>
+                <a href="#" class="block py-2 text-white hover:text-life-cream">在线商城</a>
+                <a href="stores.html" class="block py-2 text-white hover:text-life-cream">门店</a>
+                <a href="franchise.html" class="block py-2 text-white hover:text-life-cream">投资加盟</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section - Standardized -->
+    <header class="relative h-[500px] flex items-center justify-center">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40 h-[500px] z-10"></div>
+        <div class="absolute inset-0 z-0">
+            <img src="asset/banner_index.jpg" alt="Modern Interior" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-6 z-20 text-center">
+            <h1 class="text-4xl md:text-5xl font-light mb-6 hero-text-title leading-tight tracking-wide">流光溢彩的梦幻春日氛围</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto font-light leading-relaxed hero-text-desc">探索2025新品，感受质感与梦幻的完美融合</p>
+            <div class="mt-8">
+                <a href="#" class="inline-block bg-transparent border border-life-gold text-life-gold font-light px-8 py-3 hover:bg-life-gold hover:text-life-green transition-colors duration-300 tracking-widest text-sm uppercase">
+                    探索系列
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Products - Refined -->
+    <section class="py-12 bg-life-green-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-light mb-8 text-center text-[#333] uppercase tracking-widest">精选产品</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product Card 1 - Refined -->
+                <div class="bg-life-green rounded-none overflow-hidden shadow-lg">
+                    <div class="h-80 overflow-hidden">
+                        <img src="asset/香气空间.jpg" alt="Minimalist Lamp" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-light mb-2 text-life-gold tracking-wide">香气空间</h3>
+                        <p class="text-life-cream text-sm mb-2 font-light leading-relaxed">融合艺术与香气，为你打造专属的情感空间</p>
+                        <a href="#" class="text-life-gold text-sm uppercase tracking-widest hover:text-[#333] transition-colors inline-flex items-center group">
+                            <span>了解更多</span>
+                            <i class="fas fa-arrow-right ml-2 text-xs transform transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product Card 2 - Refined -->
+                <div class="bg-life-green rounded-none overflow-hidden shadow-lg">
+                    <div class="h-80 overflow-hidden">
+                        <img src="asset/毛绒.jpg" alt="Ceramic Vase" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-light mb-2 text-life-gold tracking-wide">毛绒天堂</h3>
+                        <p class="text-life-cream text-sm mb-2 font-light leading-relaxed">给予你触手可及的温暖</p>
+                        <a href="#" class="text-life-gold text-sm uppercase tracking-widest hover:text-[#333] transition-colors inline-flex items-center group">
+                            <span>了解更多</span>
+                            <i class="fas fa-arrow-right ml-2 text-xs transform transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Product Card 3 - Refined -->
+                <div class="bg-life-green rounded-none overflow-hidden shadow-lg">
+                    <div class="h-80 overflow-hidden">
+                        <img src="asset/百搭杯壶.jpg" alt="Wooden Chair" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-light mb-2 text-life-gold tracking-wide">百搭杯壶</h3>
+                        <p class="text-life-cream text-sm mb-2 font-light leading-relaxed">从清晨咖啡至户外随行，适配不同生活场景</p>
+                        <a href="#" class="text-life-gold text-sm uppercase tracking-widest hover:text-[#333] transition-colors inline-flex items-center group">
+                            <span>了解更多</span>
+                            <i class="fas fa-arrow-right ml-2 text-xs transform transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-block bg-transparent border border-life-gold text-life-gold font-light px-8 py-3 hover:bg-life-gold hover:text-life-green transition-colors duration-300 tracking-widest text-sm uppercase">
+                    浏览全部产品
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story -->
+    <section class="py-8 bg-life-green">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-2xl font-light mb-8 text-[#333] uppercase tracking-widest">品牌故事</h2>
+                    <p class="text-life-cream mb-6 font-light leading-relaxed">诞生于2023年5月，DREAME LIFE为一个以梦想为灵感的生活方式品牌。</p>
+                    <p class="text-life-cream mb-6 font-light leading-relaxed">我们相信，美好的设计能够改变生活，融合设计美学与精湛工艺，我们致力于将"梦想生活"带入每个人的日常，增添色彩与便利。</p>
+                    <p class="text-life-cream mb-6 font-light leading-relaxed">专注于打造富有艺术感与功能性的产品，每一款产品都承载着我们对梦想生活的理解——不仅是实用，更是艺术与美学的结合，展现个人风格与生活态度。我们希望通过这些产品，让人们在忙碌的生活中找到片刻的宁静与喜悦，无论是清晨的一杯热饮，还是午后的香氛陪伴，DREAME LIFE都在为您的生活增添更多可能性。</p>
+                    <a href="brand.html" class="inline-block bg-transparent border border-life-gold text-life-gold font-light px-8 py-3 hover:bg-life-gold hover:text-life-green transition-colors duration-300 tracking-widest text-sm uppercase">
+                        了解更多品牌故事
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="asset/品牌介绍.jpg" alt="Brand Story" class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Locations -->
+    <!-- Store Locations -->
+
+    <!-- Footer -->
+    <footer class="py-12" style="background-color: #3A5A40;">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">品牌</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">品牌故事</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">品牌基因</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">新闻与活动</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">产品</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">香氛</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">香水</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">毛绒</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">杯壶</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">包袋</a></li>
+                    </ul>
+                </div>
+                 <!-- Column 2 -->
+                 <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">在线商城</h3>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">门店</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">店铺形象</a></li>
+                        <li><a href="#" class="text-black hover:text-black transition-colors font-light">门店查找</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 5 -->
+                <div class="flex flex-col justify-start">
+                    <h3 class="text-xl font-light mb-4 text-black tracking-wide">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-black"></i>
+                            <span class="text-black font-light">dreamelife@dreame.tech</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-life-gold/30 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-black text-sm mb-4 md:mb-0 font-light">&copy; 2025 DREAME LIFE. 保留所有权利。</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="Instagram.jpg" title="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="TIKTOK.jpg" title="TikTok"><i class="fab fa-tiktok text-xl"></i></a>
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="FACEBOOK.jpg" title="Facebook"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-black hover:text-black transition-colors qrcode-trigger" data-qrcode="小红书.jpg" title="小红书"><i class="fas fa-book-open text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div id="qrcode-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-6 max-w-sm mx-auto rounded-lg shadow-xl relative">
+            <button id="close-modal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-800">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="text-center">
+                <h4 id="qrcode-title" class="text-xl font-light mb-4 text-life-green"></h4>
+                <div class="mb-4">
+                    <img id="qrcode-image" src="" alt="QR Code" class="mx-auto max-h-64">
+                </div>
+                <p class="text-sm text-gray-600">扫描二维码关注我们</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification for Coming Soon -->
+    <div id="toast-notification" class="fixed bottom-4 right-4 bg-life-green-light text-[#333] px-6 py-3 rounded shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <div class="flex items-center">
+            <i class="fas fa-info-circle mr-3 text-life-gold"></i>
+            <span>尽请期待</span>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Mobile Dropdown Toggles
+        document.querySelectorAll('.mobile-dropdown-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                this.closest('.mobile-dropdown').querySelector('.mobile-dropdown-menu').classList.toggle('hidden');
+                this.classList.toggle('rotate-180');
+            });
+        });
+
+        // Coming Soon Toast for Online Store links
+        document.querySelectorAll('a[href="#"][class*="text-"]').forEach(function(link) {
+            if (link.textContent.trim() === '在线商城') {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const toast = document.getElementById('toast-notification');
+                    toast.classList.remove('translate-y-20', 'opacity-0');
+                    toast.classList.add('translate-y-0', 'opacity-100');
+                    
+                    setTimeout(function() {
+                        toast.classList.remove('translate-y-0', 'opacity-100');
+                        toast.classList.add('translate-y-20', 'opacity-0');
+                    }, 3000);
+                });
+            }
+        });
+        
+        // 添加导航菜单延迟消失功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownGroups = document.querySelectorAll('.group');
+            
+            dropdownGroups.forEach(group => {
+                let timeout;
+                const dropdown = group.querySelector('.dropdown-menu');
+                
+                group.addEventListener('mouseenter', () => {
+                    clearTimeout(timeout);
+                    dropdown.style.opacity = '1';
+                    dropdown.style.visibility = 'visible';
+                });
+                
+                group.addEventListener('mouseleave', () => {
+                    timeout = setTimeout(() => {
+                        dropdown.style.opacity = '0';
+                        dropdown.style.visibility = 'hidden';
+                    }, 500); // 500毫秒延迟
+                });
+                
+                if (dropdown) {
+                    dropdown.addEventListener('mouseenter', () => {
+                        clearTimeout(timeout);
+                    });
+                    
+                    dropdown.addEventListener('mouseleave', () => {
+                        timeout = setTimeout(() => {
+                            dropdown.style.opacity = '0';
+                            dropdown.style.visibility = 'hidden';
+                        }, 500); // 500毫秒延迟
+                    });
+                }
+            });
+
+            // QR Code Modal Functionality
+            const qrcodeModal = document.getElementById('qrcode-modal');
+            const qrcodeImage = document.getElementById('qrcode-image');
+            const qrcodeTitle = document.getElementById('qrcode-title');
+            const closeModal = document.getElementById('close-modal');
+            
+            // Open Modal when clicking on social media icons
+            document.querySelectorAll('.qrcode-trigger').forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const qrcodeSrc = this.getAttribute('data-qrcode');
+                    const title = this.getAttribute('title');
+                    
+                    qrcodeImage.src = `asset/link/${qrcodeSrc}`;
+                    qrcodeTitle.textContent = `${title} 官方账号`;
+                    qrcodeModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+            
+            // Close Modal
+            closeModal.addEventListener('click', () => {
+                qrcodeModal.classList.add('hidden');
+                document.body.style.overflow = ''; // Allow scrolling again
+            });
+            
+            // Close Modal when clicking outside
+            qrcodeModal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    qrcodeModal.classList.add('hidden');
+                    document.body.style.overflow = ''; // Allow scrolling again
+                }
+            });
+            
+            // Close Modal on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !qrcodeModal.classList.contains('hidden')) {
+                    qrcodeModal.classList.add('hidden');
+                    document.body.style.overflow = ''; // Allow scrolling again
+                }
+            });
+        });
+    </script>
+</body>
+</html>
