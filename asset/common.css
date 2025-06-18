@@ -163,4 +163,23 @@ nav a, .group > a {
         width: 100%;
         padding: 0.75rem 1rem;
     }
+}
+
+/* Logo样式 - 白色背景透明效果 */
+.logo-transparent {
+    mix-blend-mode: screen;
+    filter: invert(1);
+    transition: filter 0.3s ease;
+}
+.logo-transparent:hover {
+    filter: invert(0.8);
+}
+
+/* 深色背景下的logo样式 */
+.logo-transparent-dark {
+    filter: brightness(0);
+    transition: filter 0.3s ease;
+}
+.logo-transparent-dark:hover {
+    filter: brightness(0.2);
 } 
